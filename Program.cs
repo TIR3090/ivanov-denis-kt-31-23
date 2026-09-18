@@ -1,5 +1,7 @@
 using NLog;
 using NLog.Web;
+using Microsoft.EntityFrameworkCore;
+using Ivanov_Denis_Evgenievich_KT_31_23.Data;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("init main");
@@ -13,6 +15,10 @@ try
 
     // Add services to the container.
     builder.Services.AddControllers();
+    
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
     builder.Services.AddOpenApi();
 
