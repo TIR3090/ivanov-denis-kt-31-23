@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Ivanov_Denis_Evgenievich_KT_31_23.Data;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
-logger.Debug("init main");
+logger.Debug("Инициализация приложения");
 
 try
 {
@@ -13,21 +13,23 @@ try
     builder.Logging.ClearProviders();
     builder.Host.UseNLog();
 
-    // Add services to the container.
+    // Добавляем сервисы контроллеров
     builder.Services.AddControllers();
     
     builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-    // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-    builder.Services.AddOpenApi();
+    // Настройка Swagger/OpenAPI
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
 
     var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
+    // Настройка HTTP конвейера (Pipeline)
     if (app.Environment.IsDevelopment())
     {
-        app.MapOpenApi();
+        app.UseSwagger();
+        app.UseSwaggerUI();
     }
 
     app.UseAuthorization();
@@ -38,7 +40,7 @@ try
 }
 catch (Exception exception)
 {
-    logger.Error(exception, "Stopped program because of exception");
+    logger.Error(exception, "Остановка программы из-за исключения");
     throw;
 }
 finally

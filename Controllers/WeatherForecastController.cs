@@ -8,7 +8,7 @@ public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries =
     [
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        "Морозно", "Бодряще", "Холодно", "Свежо", "Мягко", "Тепло", "Жарко", "Очень жарко", "Знойно", "Испепеляюще"
     ];
 
     private readonly ILogger<WeatherForecastController> _logger;
@@ -21,7 +21,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        _logger.LogInformation("Getting weather forecast.");
+        _logger.LogInformation("Получение прогноза погоды.");
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -34,7 +34,7 @@ public class WeatherForecastController : ControllerBase
     [HttpPost(Name = "AddWeatherSummary")]
     public IActionResult Post([FromBody] string newSummary)
     {
-        _logger.LogInformation("Adding new summary: {Summary}", newSummary);
-        return Ok($"Summary {newSummary} received but not added.");
+        _logger.LogInformation("Добавление нового описания погоды: {Summary}", newSummary);
+        return Ok($"Описание {newSummary} получено, но не добавлено.");
     }
 }

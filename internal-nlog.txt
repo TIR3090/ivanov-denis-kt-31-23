@@ -10,3 +10,9 @@
 2026-09-18 22:34:13.4344 Info LogFactory shutting down ...
 2026-09-18 22:34:13.4344 Info Closing old configuration.
 2026-09-18 22:34:13.4344 Info LogFactory shutdown completed.
+2026-09-18 22:55:43.9945 Info Registered target NLog.Targets.FileTarget(Name=my-file)
+2026-09-18 22:55:44.0014 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.2.1.5860. Product version: 6.2.1+b058028290f245d12c30cb2910c2a574558ed9c6. GlobalAssemblyCache: False
+2026-09-18 22:55:44.0188 Info Configuration initialized: TargetNames=my-file, ConfigItems=24, ConfigSection=NLog
+2026-09-18 22:55:59.1572 Info Registered target NLog.Targets.FileTarget(Name=my-file)
+2026-09-18 22:55:59.1572 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.2.1.5860. Product version: 6.2.1+b058028290f245d12c30cb2910c2a574558ed9c6. GlobalAssemblyCache: False
+2026-09-18 22:55:59.1788 Info Configuration initialized: TargetNames=my-file, ConfigItems=24, ConfigSection=NLog
