@@ -1,1 +1,0 @@
-# ivanov-denis-kt-31-23
